@@ -1,0 +1,6 @@
+---
+deployment:
+  tasks:
+    - /bin/echo "Deployment started"
+    - /bin/cp -r * /home/gsicanica/public_html/
+    - /bin/echo "Deployment completed"
