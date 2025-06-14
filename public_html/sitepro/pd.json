@@ -1,0 +1,446 @@
+{
+    "a": {
+        "paypal2": true,
+        "LayoutElement": true,
+        "TextArea": true,
+        "Languages": true,
+        "Picture": true,
+        "Gallery": true,
+        "Youtube": true,
+        "youku": true,
+        "vimeo": true,
+        "aparat": true,
+        "Video": true,
+        "instagram_video": true,
+        "facebook_video": true,
+        "rutube_video": true,
+        "vk_video": true,
+        "spotify": true,
+        "MusicPlayer": true,
+        "GoogleMaps": true,
+        "yandex_maps": true,
+        "bing_maps": true,
+        "baidu_maps": true,
+        "naver_maps": true,
+        "daum_maps": true,
+        "openstreetmap": true,
+        "Shape": true,
+        "Line": true,
+        "Button": true,
+        "Form": true,
+        "Menu": true,
+        "BuyNow": true,
+        "instagram": true,
+        "facebook_comment": true,
+        "Store": true,
+        "StoreCart": true,
+        "stripe": true,
+        "alipay": true,
+        "webmoney_button": true,
+        "skrill": true,
+        "mollie": true,
+        "dragonpay": true,
+        "braintree": true,
+        "payu": true,
+        "payumoney": true,
+        "paysera": true,
+        "payfast": true,
+        "pagseguro": true,
+        "2checkout": true,
+        "webmoney_widget": true,
+        "paytrail": true,
+        "klarna": true,
+        "paymentez": true,
+        "ecwid": true,
+        "libelula": true,
+        "mellat": true,
+        "expresspay": true,
+        "epayco": true,
+        "coinpayments": true,
+        "mpesa": true,
+        "baokim": true,
+        "bepaid": true,
+        "robokassa": true,
+        "Blog": true,
+        "vkontakte_like": true,
+        "odnoklassniki_share": true,
+        "FacebookLike": true,
+        "vkontakte_community": true,
+        "FacebookFans": true,
+        "pinterest": true,
+        "odnoklassniki": true,
+        "telegram_widget": true,
+        "BookmarksShare": true,
+        "vkontakte_comment": true,
+        "tiktok": true,
+        "Twitter": true,
+        "google_calendar": true,
+        "GoogleAdSense": true,
+        "Banner": true,
+        "Table": true,
+        "CustomHtml": true,
+        "countdown": true,
+        "count_up": true,
+        "Accordion": true,
+        "bookingmood": true,
+        "bookaplace": true,
+        "tawkto": true,
+        "olark": true,
+        "zopim": true,
+        "getbutton": true,
+        "smartarget": true,
+        "WB_Footer": true,
+        "LinkExchangeBadge": true,
+        "bank_transfer": true,
+        "cash_on_delivery": true
+    },
+    "b": [],
+    "c": {
+        "LayoutElement": [
+            "Full",
+            "Layout"
+        ],
+        "TextArea": [
+            "Full",
+            "Text"
+        ],
+        "Languages": [
+            "Full",
+            "Languages"
+        ],
+        "Picture": [
+            "Full",
+            "Picture"
+        ],
+        "Gallery": [
+            "Full",
+            "Gallery"
+        ],
+        "Youtube": [
+            "Full",
+            "Media"
+        ],
+        "youku": [
+            "Full",
+            "Media"
+        ],
+        "vimeo": [
+            "Full",
+            "Media"
+        ],
+        "aparat": [
+            "Full",
+            "Media"
+        ],
+        "Video": [
+            "Full",
+            "Media"
+        ],
+        "instagram_video": [
+            "Full",
+            "Media"
+        ],
+        "facebook_video": [
+            "Full",
+            "Media"
+        ],
+        "rutube_video": [
+            "Full",
+            "Media"
+        ],
+        "vk_video": [
+            "Full",
+            "Media"
+        ],
+        "spotify": [
+            "Full",
+            "Media"
+        ],
+        "MusicPlayer": [
+            "Full",
+            "Media"
+        ],
+        "GoogleMaps": [
+            "Full",
+            "Maps"
+        ],
+        "yandex_maps": [
+            "Full",
+            "Maps"
+        ],
+        "bing_maps": [
+            "Full",
+            "Maps"
+        ],
+        "baidu_maps": [
+            "Full",
+            "Maps"
+        ],
+        "openstreetmap": [
+            "Full",
+            "Maps"
+        ],
+        "Shape": [
+            "Full",
+            "Shape"
+        ],
+        "Line": [
+            "Full",
+            "Shape"
+        ],
+        "Button": [
+            "Full",
+            "Button"
+        ],
+        "Form": [
+            "Full",
+            "Form"
+        ],
+        "Menu": [
+            "Full",
+            "Menu"
+        ],
+        "BuyNow": [
+            "Full",
+            "Commerce"
+        ],
+        "instagram": [
+            "Full",
+            "Blocks"
+        ],
+        "facebook_comment": [
+            "Full",
+            "Social"
+        ],
+        "Store": [
+            "Full",
+            "Commerce"
+        ],
+        "StoreCart": [
+            "Full",
+            "Commerce"
+        ],
+        "stripe": [
+            "Full",
+            "Commerce"
+        ],
+        "alipay": [
+            "Full",
+            "Commerce"
+        ],
+        "webmoney_button": [
+            "Full",
+            "Commerce"
+        ],
+        "skrill": [
+            "Full",
+            "Commerce"
+        ],
+        "mollie": [
+            "Full",
+            "Commerce"
+        ],
+        "dragonpay": [
+            "Full",
+            "Commerce"
+        ],
+        "braintree": [
+            "Full",
+            "Commerce"
+        ],
+        "payu": [
+            "Full",
+            "Commerce"
+        ],
+        "payumoney": [
+            "Full",
+            "Commerce"
+        ],
+        "paysera": [
+            "Full",
+            "Commerce"
+        ],
+        "payfast": [
+            "Full",
+            "Commerce"
+        ],
+        "pagseguro": [
+            "Full",
+            "Commerce"
+        ],
+        "2checkout": [
+            "Full",
+            "Commerce"
+        ],
+        "webmoney_widget": [
+            "Full",
+            "Commerce"
+        ],
+        "paytrail": [
+            "Full",
+            "Commerce"
+        ],
+        "klarna": [
+            "Full",
+            "Commerce"
+        ],
+        "paymentez": [
+            "Full",
+            "Commerce"
+        ],
+        "ecwid": [
+            "Full",
+            "Commerce"
+        ],
+        "libelula": [
+            "Full",
+            "Commerce"
+        ],
+        "mellat": [
+            "Full",
+            "Commerce"
+        ],
+        "expresspay": [
+            "Full",
+            "Commerce"
+        ],
+        "epayco": [
+            "Full",
+            "Commerce"
+        ],
+        "coinpayments": [
+            "Full",
+            "Commerce"
+        ],
+        "mpesa": [
+            "Full",
+            "Commerce"
+        ],
+        "baokim": [
+            "Full",
+            "Commerce"
+        ],
+        "bepaid": [
+            "Full",
+            "Commerce"
+        ],
+        "robokassa": [
+            "Full",
+            "Commerce"
+        ],
+        "Blog": [
+            "Full",
+            "Blog"
+        ],
+        "vkontakte_like": [
+            "Full",
+            "Social"
+        ],
+        "odnoklassniki_share": [
+            "Full",
+            "Social"
+        ],
+        "FacebookLike": [
+            "Full",
+            "Social"
+        ],
+        "vkontakte_community": [
+            "Full",
+            "Social"
+        ],
+        "FacebookFans": [
+            "Full",
+            "Social"
+        ],
+        "pinterest": [
+            "Full",
+            "Social"
+        ],
+        "odnoklassniki": [
+            "Full",
+            "Social"
+        ],
+        "telegram_widget": [
+            "Full",
+            "Social"
+        ],
+        "BookmarksShare": [
+            "Full",
+            "Social"
+        ],
+        "vkontakte_comment": [
+            "Full",
+            "Social"
+        ],
+        "tiktok": [
+            "Full",
+            "Social"
+        ],
+        "Twitter": [
+            "Full",
+            "Social"
+        ],
+        "google_calendar": [
+            "Full",
+            "Advanced"
+        ],
+        "GoogleAdSense": [
+            "Full",
+            "Advanced"
+        ],
+        "Banner": [
+            "Full",
+            "Advanced"
+        ],
+        "Table": [
+            "Full",
+            "Advanced"
+        ],
+        "CustomHtml": [
+            "Full",
+            "Advanced"
+        ],
+        "countdown": [
+            "Full",
+            "Advanced"
+        ],
+        "count_up": [
+            "Full",
+            "Advanced"
+        ],
+        "Accordion": [
+            "Full",
+            "Advanced"
+        ],
+        "bookingmood": [
+            "Full",
+            "Advanced"
+        ],
+        "bookaplace": [
+            "Full",
+            "Advanced"
+        ],
+        "tawkto": [
+            "Full",
+            "Advanced"
+        ],
+        "olark": [
+            "Full",
+            "Advanced"
+        ],
+        "zopim": [
+            "Full",
+            "Advanced"
+        ],
+        "getbutton": [
+            "Full",
+            "Advanced"
+        ],
+        "smartarget": [
+            "Full",
+            "Advanced"
+        ]
+    },
+    "d": "https:\/\/namesilo.com",
+    "e": "b77347e126d774267c8d93a053b5e6ebef4c1e51"
+}
