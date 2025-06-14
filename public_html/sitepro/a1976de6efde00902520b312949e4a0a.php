@@ -174,6 +174,7 @@
       <button onclick="showSection('employees')" class="w-full text-left px-4 py-2 hover:bg-slate-700"><i class="fa-solid fa-user-gear"></i> Zaposlenici</button>
       <button onclick="showSection('calendar')" class="w-full text-left px-4 py-2 hover:bg-slate-700"><i class="fa-solid fa-calendar-days"></i> Kalendar</button>
       <button onclick="showSection('equipment')" class="w-full text-left px-4 py-2 hover:bg-slate-700"><i class="fa-solid fa-screwdriver-wrench"></i> Oprema</button>
+      <button onclick="showSection('reports')" class="w-full text-left px-4 py-2 hover:bg-slate-700"><i class="fa-solid fa-chart-pie"></i> Izvještaji</button>
     </nav><div class="p-4">
       <button onclick="toggleDark()" class="w-full bg-slate-700 hover:bg-slate-600 px-3 py-2 rounded"><i class="fa-solid fa-moon"></i> Tamni mod</button>
     </div>
@@ -263,6 +264,14 @@
         <input oninput="filterTable('equipmentTable', this.value)" type="text" placeholder="Brza pretraga..." class="border px-2 py-1 rounded w-full mb-2"><div class="overflow-x-auto">
           <table id="equipmentTable" class="min-w-full text-sm bg-white dark:bg-slate-800 rounded shadow"><thead><tr class="bg-gray-200 dark:bg-slate-700"><th class="px-2 py-1">Naziv</th><th class="px-2 py-1">Status</th><th class="px-2 py-1">Akcija</th>
               </tr></thead><tbody></tbody></table></div>
+      </section><!-- Reports --><section id="reportsSection" class="hidden space-y-4">
+        <h2 class="text-xl font-semibold">Izvještaji</h2>
+        <div class="bg-white dark:bg-slate-800 p-4 rounded shadow">
+          <p>Ukupan prihod: <span id="repRevenue">0</span> EUR</p>
+          <p>Ukupan trošak: <span id="repCost">0</span> EUR</p>
+          <p>Neto dobit: <span id="repNet">0</span> EUR</p>
+          <button onclick="exportAllData()" class="bg-emerald-600 hover:bg-emerald-700 text-white px-4 py-2 rounded mt-2">Preuzmi JSON</button>
+        </div>
       </section></div>
   </main><!-- Overlay & Modals --><div id="overlay" class="fixed inset-0 bg-black bg-opacity-50 hidden"></div>
 
@@ -325,13 +334,18 @@
 
     // Navigation
     function showSection(section) {
-      ['overview','finance','clients','employees','calendar','equipment'].forEach(s=>{
+      ['overview','finance','clients','employees','calendar','equipment','reports'].forEach(s=>{
         document.getElementById(s+'Section').classList.toggle('hidden', s!==section);
       });
       document.getElementById('sectionTitle').innerText = {
-        overview:'Pregled', finance:'Financije', clients:'Klijenti', employees:'Zaposlenici', calendar:'Kalendar', equipment:'Oprema'
+        overview:'Pregled', finance:'Financije', clients:'Klijenti', employees:'Zaposlenici', calendar:'Kalendar', equipment:'Oprema', reports:'Izvještaji'
       }[section];
       if(section==='finance') { renderFinanceTable(); updateFinance(); }
+      if(section==='reports') {
+        document.getElementById('repRevenue').innerText = revenue.reduce((a,b)=>a+b,0);
+        document.getElementById('repCost').innerText = cost.reduce((a,b)=>a+b,0);
+        document.getElementById('repNet').innerText = revenue.reduce((a,b,i)=>a+(b-cost[i]),0);
+      }
       updateKPIs();
     }
 
@@ -354,6 +368,16 @@
       else if(sec==='zaposlenici') exportTableToCSV('employees.csv','employeesTable');
       else if(sec==='oprema') exportTableToCSV('equipment.csv','equipmentTable');
       else alert('Nema podataka za izvoz u ovoj sekciji.');
+    }
+
+    function exportAllData() {
+      const events = calendarInstance.getEvents().map(e=>({title:e.title,start:e.startStr}));
+      const data = {revenue,cost,buildings,hours,clients,employees,equipment,events};
+      const blob = new Blob([JSON.stringify(data,null,2)], {type:'application/json'});
+      const link = document.createElement('a');
+      link.download = 'dashboard_data.json';
+      link.href = URL.createObjectURL(blob);
+      link.click();
     }
 
     // CRUD render
