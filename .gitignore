@@ -1,0 +1,8 @@
+# Ignore build artifacts
+public_html/sitepro/src
+
+# Ignore logs
+src/forms/forms.log
+src/forms/forms.log.lock
+public_html/sitepro/src/forms/forms.log
+public_html/sitepro/src/forms/forms.log.lock
