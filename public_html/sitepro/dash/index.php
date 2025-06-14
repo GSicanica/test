@@ -1,39 +1,57 @@
 <?php
-// Start or resume the session
 session_start();
 
-// Handle logout request and destroy the session
+const DASH_PASS = 'password'; // Ovdje promijenite lozinku
+
+// Handle logout
 if (isset($_GET['logout'])) {
     session_destroy();
-    header('Location: login.php');
+    header('Location: index.php');
     exit;
 }
 
-// Redirect unauthenticated users to the login page
-if (empty($_SESSION['logged_in'])) {
-    header('Location: login.php');
-    exit;
+// Handle login submission
+if (isset($_POST['password'])) {
+    if ($_POST['password'] === DASH_PASS) {
+        $_SESSION['logged_in'] = true;
+        header('Location: index.php');
+        exit;
+    } else {
+        $error = 'Neispravna lozinka.';
+    }
 }
 
-// At this point the user is logged in
+$loggedIn = !empty($_SESSION['logged_in']);
 ?>
 <!DOCTYPE html>
 <html lang="hr">
 <head>
     <meta charset="UTF-8">
     <title>Moj Dashboard</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
-<body class="bg-light">
-    <div class="container py-4">
-        <a href="?logout=1" class="btn btn-link float-end">Odjava</a>
-        <h1 class="mb-4">Dobrodošao na dashboard!</h1>
-        <div class="card mb-3">
-            <div class="card-body">
-                <p class="card-text">Ovdje možeš dodati sadržaj svog dashboarda (grafove, tablice, linkove itd).</p>
-                <p class="card-text"><small class="text-muted">Trenutno vrijeme: <?php echo date('d.m.Y H:i'); ?></small></p>
-            </div>
+<body class="bg-light p-4">
+<div class="container">
+<?php if (!$loggedIn): ?>
+    <h1 class="mb-3">Prijava</h1>
+    <?php if (!empty($error)): ?>
+        <div class="alert alert-danger"><?php echo htmlspecialchars($error); ?></div>
+    <?php endif; ?>
+    <form method="post" class="card card-body shadow-sm" style="max-width: 400px; margin: auto;">
+        <div class="mb-3">
+            <label for="password" class="form-label">Lozinka</label>
+            <input type="password" name="password" id="password" class="form-control" required>
         </div>
+        <button type="submit" class="btn btn-primary">Prijavi se</button>
+    </form>
+<?php else: ?>
+    <a href="?logout=1" class="btn btn-secondary float-end">Odjava</a>
+    <h1>Dobrodošao na dashboard!</h1>
+    <div class="card shadow-sm p-3 mb-3">
+        <p>Ovdje možeš dodati sadržaj svog dashboarda (grafove, tablice, linkove itd).</p>
+        <p><small class="text-muted">Trenutno vrijeme: <?php echo date('d.m.Y H:i'); ?></small></p>
     </div>
+<?php endif; ?>
+</div>
 </body>
 </html>
