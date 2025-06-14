@@ -89,6 +89,8 @@
       cost = Array(12).fill(0);
       buildings = Array(12).fill(0);
       hours = Array(12).fill(0);
+      calendarInstance.removeAllEvents();
+      saveEvents();
       localStorage.setItem('revenue', JSON.stringify(revenue));
       localStorage.setItem('cost', JSON.stringify(cost));
       localStorage.setItem('buildings', JSON.stringify(buildings));
@@ -271,6 +273,8 @@
           <p>Ukupan trošak: <span id="repCost">0</span> EUR</p>
           <p>Neto dobit: <span id="repNet">0</span> EUR</p>
           <button onclick="exportAllData()" class="bg-emerald-600 hover:bg-emerald-700 text-white px-4 py-2 rounded mt-2">Preuzmi JSON</button>
+          <input id="importFile" type="file" accept="application/json" class="hidden" onchange="importAllData(event)">
+          <button onclick="document.getElementById('importFile').click()" class="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded mt-2 ml-2">Učitaj JSON</button>
         </div>
       </section></div>
   </main><!-- Overlay & Modals --><div id="overlay" class="fixed inset-0 bg-black bg-opacity-50 hidden"></div>
@@ -363,11 +367,45 @@
     }
     function exportCurrentSection() {
       const sec = document.getElementById('sectionTitle').innerText.toLowerCase();
-      if(sec==='financije' || sec==='financije' ) exportTableToCSV('finance.csv','financeTable');
+      if(sec==='financije' || sec==='finance') exportTableToCSV('finance.csv','financeTable');
       else if(sec==='klijenti') exportTableToCSV('clients.csv','clientsTable');
       else if(sec==='zaposlenici') exportTableToCSV('employees.csv','employeesTable');
       else if(sec==='oprema') exportTableToCSV('equipment.csv','equipmentTable');
       else alert('Nema podataka za izvoz u ovoj sekciji.');
+    }
+
+    function importAllData(e){
+      const file = e.target.files[0];
+      if(!file) return;
+      const reader = new FileReader();
+      reader.onload = () => {
+        try {
+          const d = JSON.parse(reader.result);
+          if(Array.isArray(d.revenue) && d.revenue.length===12) revenue = d.revenue;
+          if(Array.isArray(d.cost) && d.cost.length===12) cost = d.cost;
+          if(Array.isArray(d.buildings) && d.buildings.length===12) buildings = d.buildings;
+          if(Array.isArray(d.hours) && d.hours.length===12) hours = d.hours;
+          if(Array.isArray(d.clients)) clients = d.clients;
+          if(Array.isArray(d.employees)) employees = d.employees;
+          if(Array.isArray(d.equipment)) equipment = d.equipment;
+          calendarInstance.removeAllEvents();
+          if(Array.isArray(d.events)) d.events.forEach(ev=>calendarInstance.addEvent(ev));
+          saveEvents();
+          localStorage.setItem('revenue', JSON.stringify(revenue));
+          localStorage.setItem('cost', JSON.stringify(cost));
+          localStorage.setItem('buildings', JSON.stringify(buildings));
+          localStorage.setItem('hours', JSON.stringify(hours));
+          localStorage.setItem('clients', JSON.stringify(clients));
+          localStorage.setItem('employees', JSON.stringify(employees));
+          localStorage.setItem('equipment', JSON.stringify(equipment));
+          renderClients(); renderEmployees(); renderEquipment();
+          renderFinanceTable(); updateFinance(); updateKPIs();
+          alert('Podaci učitani.');
+        } catch(err){
+          alert('Neispravan JSON');
+        }
+      };
+      reader.readAsText(file);
     }
 
     function exportAllData() {
@@ -495,9 +533,17 @@
         height:600,
         selectable:true,
         headerToolbar:{left:'title',center:'prev,next today',right:'dayGridMonth,timeGridWeek'},
-        dateClick:info=>{const t=prompt('Naziv zadatka:');if(t){calendarInstance.addEvent({title:t,start:info.dateStr});updateKPIs();}}
+        dateClick:info=>{const t=prompt('Naziv zadatka:');if(t){calendarInstance.addEvent({title:t,start:info.dateStr});saveEvents();updateKPIs();}},
+        eventClick:info=>{if(confirm('Obrisati zadatak?')){info.event.remove();saveEvents();updateKPIs();}}
       });
       calendarInstance.render();
+      const stored = JSON.parse(localStorage.getItem('events')||'[]');
+      stored.forEach(ev=>calendarInstance.addEvent(ev));
+    }
+
+    function saveEvents(){
+      const evs = calendarInstance.getEvents().map(e=>({title:e.title,start:e.startStr}));
+      localStorage.setItem('events', JSON.stringify(evs));
     }
 
     // KPIs
