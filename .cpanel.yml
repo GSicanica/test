@@ -1,6 +1,4 @@
----
 deployment:
   tasks:
-    - /bin/echo "Deployment started"
-    - /bin/cp -r * /home/gsicanica/public_html/
-    - /bin/echo "Deployment completed"
+    - export DEPLOY_PATH=/home/tmbv80639337/public_html
+    - rsync -av --delete ./public_html/ $DEPLOY_PATH/
