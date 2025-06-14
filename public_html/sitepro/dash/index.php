@@ -23,6 +23,7 @@ if (isset($_POST['password'])) {
 }
 
 $loggedIn = !empty($_SESSION['logged_in']);
+$view = $_GET['view'] ?? 'home';
 ?>
 <!DOCTYPE html>
 <html lang="hr">
@@ -47,10 +48,55 @@ $loggedIn = !empty($_SESSION['logged_in']);
     </form>
 <?php else: ?>
     <a href="?logout=1" class="btn btn-secondary float-end">Odjava</a>
-    <h1>Dobrodošao na dashboard!</h1>
-    <div class="card shadow-sm p-3">
-        <p>Ovdje možeš dodati sadržaj svog dashboarda (grafove, tablice, linkove itd).</p>
-    </div>
+    <h1 class="mb-4">Dobrodošao na dashboard!</h1>
+
+    <ul class="nav nav-tabs mb-3">
+        <li class="nav-item">
+            <a class="nav-link <?php echo $view==='home' ? 'active' : ''; ?>" href="?">Početna</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link <?php echo $view==='forms' ? 'active' : ''; ?>" href="?view=forms">Upiti</a>
+        </li>
+    </ul>
+
+    <?php if ($view === 'forms'): ?>
+        <?php
+        $logFile = __DIR__ . '/../src/forms/forms.log';
+        $entries = file_exists($logFile) ? json_decode(file_get_contents($logFile), true) : [];
+        ?>
+        <?php if (!$entries): ?>
+            <p>Nema zabilježenih upita.</p>
+        <?php else: ?>
+            <div class="table-responsive">
+            <table class="table table-sm table-striped">
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Datum</th>
+                        <?php foreach ($entries[0]['fields'] as $f): ?>
+                            <th><?php echo htmlspecialchars($f['name']); ?></th>
+                        <?php endforeach; ?>
+                    </tr>
+                </thead>
+                <tbody>
+                    <?php foreach ($entries as $e): ?>
+                        <tr>
+                            <td><?php echo $e['id']; ?></td>
+                            <td><?php echo htmlspecialchars($e['createdAt']); ?></td>
+                            <?php foreach ($e['fields'] as $f): ?>
+                                <td><?php echo htmlspecialchars($f['answer']); ?></td>
+                            <?php endforeach; ?>
+                        </tr>
+                    <?php endforeach; ?>
+                </tbody>
+            </table>
+            </div>
+        <?php endif; ?>
+    <?php else: ?>
+        <div class="card shadow-sm p-3">
+            <p>Ovdje možeš dodati sadržaj svog dashboarda (grafove, tablice, linkove itd).</p>
+        </div>
+    <?php endif; ?>
 <?php endif; ?>
 </div>
 </body>
