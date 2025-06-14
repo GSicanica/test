@@ -1,4 +1,5 @@
 deployment:
   tasks:
     - export DEPLOY_PATH=/home/tmbv80639337/public_html
+    - mkdir -p $DEPLOY_PATH
     - rsync -av --delete ./public_html/ $DEPLOY_PATH/
