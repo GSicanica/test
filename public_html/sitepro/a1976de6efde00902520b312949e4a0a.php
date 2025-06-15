@@ -67,94 +67,15 @@
 </div><div id="a188dda148e73982e690500af38491f3" class="wb_element wb-layout-element" data-plugin="LayoutElement"><div class="wb_content wb-layout-horizontal"><div id="a188dda148e73ae8fa438e0c8f5c9beb" class="wb_element wb_element_picture" data-plugin="Picture" title=""><div class="wb_picture_wrap"><div class="wb-picture-wrapper"><a href="{{base_url}}"><img loading="lazy" alt="" src="gallery_gen/7f86f44fb2e58a49bfd7cdc63b4c98e3_264x264_fit.png?ts=1749919455"></a></div></div></div></div></div><div id="a18b5c0479dc00fb4bd23cebc7ac4c6e" class="wb_element wb-layout-element" data-plugin="LayoutElement"><div class="wb_content wb-layout-vertical"><div id="a188dda148e73cd443e4f11ea6e33459" class="wb_element wb-menu wb-prevent-layout-click wb-menu-mobile" data-plugin="Menu"><a class="btn btn-default btn-collapser"><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></a><ul class="hmenu" dir="ltr"><li class=""><a href="{{base_url}}">Home</a></li><li class=""><a href="About-us/">über uns</a></li><li class=""><a href="novitettagmoj/">dienstleistungen</a></li><li class=""><a href="Contacts/">Kontakt</a></li><li class="wb_this_page_menu_item"><a href="test/">test</a></li></ul><div class="clearfix"></div></div></div></div></div></div></div></div><div id="wb_main_a1976de6efde00902520b312949e4a0a" class="wb_element wb-layout-element" data-plugin="LayoutElement"><div class="wb_content wb-layout-vertical"><div id="a1976de6f0d205a03932764a118ce071" class="wb_element wb-anim-entry wb-anim wb-anim-fade-in-none wb-layout-element" data-plugin="LayoutElement" data-wb-anim-entry-time="0.6" data-wb-anim-entry-delay="0"><div class="wb_content wb-layout-vertical"><div id="a1976de789b600656905385058fda5eb" class="wb_element" data-plugin="CustomHtml" style=" overflow: hidden;"><div style="width: 100%; height: 100%; overflow-y: auto;">
 <div data-replaced-tag="html" lang="hr">
 <div data-replaced-tag="head">
-  <title>Gewerbe Dashboard – Gebäudereinigung &amp; Hausmeisterservice</title><!-- Tailwind CSS --><script src="https://cdn.tailwindcss.com">
-    // Load initial data
-    function loadInitialData() {
-      if (!confirm('Učitati inicijalne testne podatke? Ovo će prebrisati postojeće.')) return;
-      revenue = initRevenue.slice();
-      cost = initCost.slice();
-      buildings = initBuildings.slice();
-      hours = initHours.slice();
-      localStorage.setItem('revenue', JSON.stringify(revenue));
-      localStorage.setItem('cost', JSON.stringify(cost));
-      localStorage.setItem('buildings', JSON.stringify(buildings));
-      localStorage.setItem('hours', JSON.stringify(hours));
-      renderFinanceTable(); updateFinance(); updateKPIs();
-    }
-
-    // Reset all data to zero
-    function resetData() {
-      if (!confirm('Resetirati sve podatke na nulu?')) return;
-      revenue = Array(12).fill(0);
-      cost = Array(12).fill(0);
-      buildings = Array(12).fill(0);
-      hours = Array(12).fill(0);
-      localStorage.setItem('revenue', JSON.stringify(revenue));
-      localStorage.setItem('cost', JSON.stringify(cost));
-      localStorage.setItem('buildings', JSON.stringify(buildings));
-      localStorage.setItem('hours', JSON.stringify(hours));
-      renderFinanceTable(); updateFinance(); updateKPIs();
-    }
-
-  </script><!-- FontAwesome Icons --><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"><!-- Chart.js --><script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js">
-    // Load initial data
-    function loadInitialData() {
-      if (!confirm('Učitati inicijalne testne podatke? Ovo će prebrisati postojeće.')) return;
-      revenue = initRevenue.slice();
-      cost = initCost.slice();
-      buildings = initBuildings.slice();
-      hours = initHours.slice();
-      localStorage.setItem('revenue', JSON.stringify(revenue));
-      localStorage.setItem('cost', JSON.stringify(cost));
-      localStorage.setItem('buildings', JSON.stringify(buildings));
-      localStorage.setItem('hours', JSON.stringify(hours));
-      renderFinanceTable(); updateFinance(); updateKPIs();
-    }
-
-    // Reset all data to zero
-    function resetData() {
-      if (!confirm('Resetirati sve podatke na nulu?')) return;
-      revenue = Array(12).fill(0);
-      cost = Array(12).fill(0);
-      buildings = Array(12).fill(0);
-      hours = Array(12).fill(0);
-      localStorage.setItem('revenue', JSON.stringify(revenue));
-      localStorage.setItem('cost', JSON.stringify(cost));
-      localStorage.setItem('buildings', JSON.stringify(buildings));
-      localStorage.setItem('hours', JSON.stringify(hours));
-      renderFinanceTable(); updateFinance(); updateKPIs();
-    }
-
-  </script><!-- FullCalendar --><link href="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.8/index.global.min.css" rel="stylesheet"><script src="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.8/index.global.min.js">
-    // Load initial data
-    function loadInitialData() {
-      if (!confirm('Učitati inicijalne testne podatke? Ovo će prebrisati postojeće.')) return;
-      revenue = initRevenue.slice();
-      cost = initCost.slice();
-      buildings = initBuildings.slice();
-      hours = initHours.slice();
-      localStorage.setItem('revenue', JSON.stringify(revenue));
-      localStorage.setItem('cost', JSON.stringify(cost));
-      localStorage.setItem('buildings', JSON.stringify(buildings));
-      localStorage.setItem('hours', JSON.stringify(hours));
-      renderFinanceTable(); updateFinance(); updateKPIs();
-    }
-
-    // Reset all data to zero
-    function resetData() {
-      if (!confirm('Resetirati sve podatke na nulu?')) return;
-      revenue = Array(12).fill(0);
-      cost = Array(12).fill(0);
-      buildings = Array(12).fill(0);
-      hours = Array(12).fill(0);
-      localStorage.setItem('revenue', JSON.stringify(revenue));
-      localStorage.setItem('cost', JSON.stringify(cost));
-      localStorage.setItem('buildings', JSON.stringify(buildings));
-      localStorage.setItem('hours', JSON.stringify(hours));
-      renderFinanceTable(); updateFinance(); updateKPIs();
-    }
-
-  </script><style>
+  <title>Gewerbe Dashboard – Gebäudereinigung &amp; Hausmeisterservice</title><!-- Tailwind CSS --><script src="https://cdn.tailwindcss.com"></script>
+  <!-- FontAwesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <!-- Chart.js -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+  <!-- FullCalendar -->
+  <link href="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.8/index.global.min.css" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.8/index.global.min.js"></script>
+  <style>
     /* Scrollbar */
     ::-webkit-scrollbar { width: 8px; }
     ::-webkit-scrollbar-thumb { background: #888; border-radius: 4px; }
@@ -266,12 +187,14 @@
               </tr></thead><tbody></tbody></table></div>
       </section><!-- Reports --><section id="reportsSection" class="hidden space-y-4">
         <h2 class="text-xl font-semibold">Izvještaji</h2>
-        <div class="bg-white dark:bg-slate-800 p-4 rounded shadow">
-          <p>Ukupan prihod: <span id="repRevenue">0</span> EUR</p>
-          <p>Ukupan trošak: <span id="repCost">0</span> EUR</p>
-          <p>Neto dobit: <span id="repNet">0</span> EUR</p>
-          <button onclick="exportAllData()" class="bg-emerald-600 hover:bg-emerald-700 text-white px-4 py-2 rounded mt-2">Preuzmi JSON</button>
-        </div>
+          <div class="bg-white dark:bg-slate-800 p-4 rounded shadow">
+            <p>Ukupan prihod: <span id="repRevenue">0</span> EUR</p>
+            <p>Ukupan trošak: <span id="repCost">0</span> EUR</p>
+            <p>Neto dobit: <span id="repNet">0</span> EUR</p>
+            <button onclick="exportAllData()" class="bg-emerald-600 hover:bg-emerald-700 text-white px-4 py-2 rounded mt-2">Preuzmi JSON</button>
+            <input id="importFile" type="file" accept="application/json" class="hidden" onchange="importData(event)">
+            <button onclick="document.getElementById('importFile').click()" class="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded mt-2 ml-2">Uvezi JSON</button>
+          </div>
       </section></div>
   </main><!-- Overlay & Modals --><div id="overlay" class="fixed inset-0 bg-black bg-opacity-50 hidden"></div>
 
@@ -315,13 +238,25 @@
     let netProfit = [], hourlyRate = [];
     let clients = JSON.parse(localStorage.getItem('clients')||'[]');
     let employees = JSON.parse(localStorage.getItem('employees')||'[]');
-    let equipment = JSON.parse(localStorage.getItem('equipment')||'[]');
-    let calendarInstance, financeChart, hourlyChart;
+      let equipment = JSON.parse(localStorage.getItem('equipment')||'[]');
+      let calendarInstance, financeChart, hourlyChart;
+
+      function loadEvents(){
+        try { return JSON.parse(localStorage.getItem('events')||'[]'); } catch(e){ return []; }
+      }
+      function saveEvents(events){
+        localStorage.setItem('events', JSON.stringify(events));
+      }
 
     // Persistence
-    function saveData() {
+    function saveFinanceData(){
       localStorage.setItem('revenue', JSON.stringify(revenue));
       localStorage.setItem('cost', JSON.stringify(cost));
+      localStorage.setItem('buildings', JSON.stringify(buildings));
+      localStorage.setItem('hours', JSON.stringify(hours));
+    }
+    function saveData() {
+      saveFinanceData();
       updateKPIs();
     }
 
@@ -370,21 +305,67 @@
       else alert('Nema podataka za izvoz u ovoj sekciji.');
     }
 
-    function exportAllData() {
-      const events = calendarInstance.getEvents().map(e=>({title:e.title,start:e.startStr}));
-      const data = {revenue,cost,buildings,hours,clients,employees,equipment,events};
-      const blob = new Blob([JSON.stringify(data,null,2)], {type:'application/json'});
-      const link = document.createElement('a');
-      link.download = 'dashboard_data.json';
-      link.href = URL.createObjectURL(blob);
-      link.click();
-    }
+  function exportAllData() {
+    const events = calendarInstance.getEvents().map(e=>({title:e.title,start:e.startStr}));
+    const data = {revenue,cost,buildings,hours,clients,employees,equipment,events};
+    const blob = new Blob([JSON.stringify(data,null,2)], {type:'application/json'});
+    const link = document.createElement('a');
+    link.download = 'dashboard_data.json';
+    link.href = URL.createObjectURL(blob);
+    link.click();
+  }
+
+  function importData(evt){
+    const file = evt.target.files[0];
+    if(!file) return;
+    const reader = new FileReader();
+    reader.onload = () => {
+      try{
+        const data = JSON.parse(reader.result);
+        revenue = data.revenue || revenue;
+        cost = data.cost || cost;
+        buildings = data.buildings || buildings;
+        hours = data.hours || hours;
+        clients = data.clients || clients;
+        employees = data.employees || employees;
+        equipment = data.equipment || equipment;
+        saveFinanceData();
+        localStorage.setItem('clients', JSON.stringify(clients));
+        localStorage.setItem('employees', JSON.stringify(employees));
+        localStorage.setItem('equipment', JSON.stringify(equipment));
+        saveEvents(data.events || []);
+        renderFinanceTable(); updateFinance();
+        renderClients(); renderEmployees(); renderEquipment();
+        calendarInstance.removeAllEvents();
+        (data.events||[]).forEach(e=>calendarInstance.addEvent(e));
+        updateKPIs();
+      }catch(e){
+        alert('Neispravan JSON');
+      }
+    };
+    reader.readAsText(file);
+  }
 
     // CRUD render
-    function renderClients() {
-      const tbody = document.querySelector('#clientsTable tbody'); tbody.innerHTML='';
-      clients.forEach((c,i)=>{ tbody.innerHTML+=`<tr><td>${c.name}<td>${c.address}<td>${c.phone}<td><button onclick="removeClient(${i})">🗑️`; });
-    }
+      function renderClients() {
+        const tbody = document.querySelector('#clientsTable tbody');
+        tbody.innerHTML = '';
+        clients.forEach((c,i)=>{
+          const tr=document.createElement('tr');
+          ['name','address','phone'].forEach(k=>{
+            const td=document.createElement('td');
+            td.textContent=c[k];
+            tr.appendChild(td);
+          });
+          const td=document.createElement('td');
+          const btn=document.createElement('button');
+          btn.textContent='🗑️';
+          btn.onclick=()=>removeClient(i);
+          td.appendChild(btn);
+          tr.appendChild(td);
+          tbody.appendChild(tr);
+        });
+      }
     function addClient() {
       const name=document.getElementById('clientName').value.trim(), address=document.getElementById('clientAddress').value.trim(), phone=document.getElementById('clientPhone').value.trim();
       if(!name||!address) return alert('Ime i adresa obavezni');
@@ -392,10 +373,25 @@
     }
     function removeClient(i){ if(confirm('Obrisati klijenta?')){ clients.splice(i,1); localStorage.setItem('clients',JSON.stringify(clients)); renderClients(); updateKPIs(); }}
 
-    function renderEmployees() {
-      const tbody=document.querySelector('#employeesTable tbody'); tbody.innerHTML='';
-      employees.forEach((e,i)=>{ tbody.innerHTML+=`<tr><td>${e.name}<td>${e.role}<td>${e.rating}<td><button onclick="removeEmployee(${i})">🗑️`; });
-    }
+      function renderEmployees() {
+        const tbody=document.querySelector('#employeesTable tbody');
+        tbody.innerHTML='';
+        employees.forEach((e,i)=>{
+          const tr=document.createElement('tr');
+          ['name','role','rating'].forEach(k=>{
+            const td=document.createElement('td');
+            td.textContent=e[k];
+            tr.appendChild(td);
+          });
+          const td=document.createElement('td');
+          const btn=document.createElement('button');
+          btn.textContent='🗑️';
+          btn.onclick=()=>removeEmployee(i);
+          td.appendChild(btn);
+          tr.appendChild(td);
+          tbody.appendChild(tr);
+        });
+      }
     function addEmployee(){
       const name=document.getElementById('employeeName').value.trim(), role=document.getElementById('employeeRole').value.trim(), rating=document.getElementById('employeeRating').value;
       if(!name||!role) return alert('Ime i pozicija obavezni');
@@ -403,10 +399,25 @@
     }
     function removeEmployee(i){ if(confirm('Obrisati zaposlenika?')){ employees.splice(i,1); localStorage.setItem('employees',JSON.stringify(employees)); renderEmployees(); updateKPIs(); }}
 
-    function renderEquipment(){
-      const tbody=document.querySelector('#equipmentTable tbody'); tbody.innerHTML='';
-      equipment.forEach((eq,i)=>{ tbody.innerHTML+=`<tr><td>${eq.name}<td>${eq.status}<td><button onclick="removeEquipment(${i})">🗑️`; });
-    }
+      function renderEquipment(){
+        const tbody=document.querySelector('#equipmentTable tbody');
+        tbody.innerHTML='';
+        equipment.forEach((eq,i)=>{
+          const tr=document.createElement('tr');
+          ['name','status'].forEach(k=>{
+            const td=document.createElement('td');
+            td.textContent=eq[k];
+            tr.appendChild(td);
+          });
+          const td=document.createElement('td');
+          const btn=document.createElement('button');
+          btn.textContent='🗑️';
+          btn.onclick=()=>removeEquipment(i);
+          td.appendChild(btn);
+          tr.appendChild(td);
+          tbody.appendChild(tr);
+        });
+      }
     function addEquipment(){
       const name=document.getElementById('equipmentName').value.trim(), status=document.getElementById('equipmentStatus').value.trim();
       if(!name||!status) return alert('Naziv i status obavezni');
@@ -442,10 +453,7 @@
       } else {
         revenue = initRevenue.slice(); cost = initCost.slice();
         buildings = initBuildings.slice(); hours = initHours.slice();
-        localStorage.setItem('revenue',JSON.stringify(revenue));
-        localStorage.setItem('cost',JSON.stringify(cost));
-        localStorage.setItem('buildings',JSON.stringify(buildings));
-        localStorage.setItem('hours',JSON.stringify(hours));
+        saveFinanceData();
       }
       renderFinanceTable();
       // charts
@@ -495,8 +503,23 @@
         height:600,
         selectable:true,
         headerToolbar:{left:'title',center:'prev,next today',right:'dayGridMonth,timeGridWeek'},
-        dateClick:info=>{const t=prompt('Naziv zadatka:');if(t){calendarInstance.addEvent({title:t,start:info.dateStr});updateKPIs();}}
+        dateClick:info=>{
+          const t = prompt('Naziv zadatka:');
+          if(t){
+            calendarInstance.addEvent({title:t,start:info.dateStr});
+            saveEvents(calendarInstance.getEvents().map(e=>({title:e.title,start:e.startStr})));
+            updateKPIs();
+          }
+        },
+        eventClick:info=>{
+          if(confirm('Obrisati zadatak?')){
+            info.event.remove();
+            saveEvents(calendarInstance.getEvents().map(e=>({title:e.title,start:e.startStr})));
+            updateKPIs();
+          }
+        }
       });
+      loadEvents().forEach(e=>calendarInstance.addEvent(e));
       calendarInstance.render();
     }
 
@@ -522,32 +545,26 @@
     });
   
     // Load initial data
-    function loadInitialData() {
-      if (!confirm('Učitati inicijalne testne podatke? Ovo će prebrisati postojeće.')) return;
-      revenue = initRevenue.slice();
-      cost = initCost.slice();
-      buildings = initBuildings.slice();
-      hours = initHours.slice();
-      localStorage.setItem('revenue', JSON.stringify(revenue));
-      localStorage.setItem('cost', JSON.stringify(cost));
-      localStorage.setItem('buildings', JSON.stringify(buildings));
-      localStorage.setItem('hours', JSON.stringify(hours));
-      renderFinanceTable(); updateFinance(); updateKPIs();
-    }
+      function loadInitialData() {
+        if (!confirm('Učitati inicijalne testne podatke? Ovo će prebrisati postojeće.')) return;
+        revenue = initRevenue.slice();
+        cost = initCost.slice();
+        buildings = initBuildings.slice();
+        hours = initHours.slice();
+        saveFinanceData();
+        renderFinanceTable(); updateFinance(); updateKPIs();
+      }
 
     // Reset all data to zero
-    function resetData() {
-      if (!confirm('Resetirati sve podatke na nulu?')) return;
-      revenue = Array(12).fill(0);
-      cost = Array(12).fill(0);
-      buildings = Array(12).fill(0);
-      hours = Array(12).fill(0);
-      localStorage.setItem('revenue', JSON.stringify(revenue));
-      localStorage.setItem('cost', JSON.stringify(cost));
-      localStorage.setItem('buildings', JSON.stringify(buildings));
-      localStorage.setItem('hours', JSON.stringify(hours));
-      renderFinanceTable(); updateFinance(); updateKPIs();
-    }
+      function resetData() {
+        if (!confirm('Resetirati sve podatke na nulu?')) return;
+        revenue = Array(12).fill(0);
+        cost = Array(12).fill(0);
+        buildings = Array(12).fill(0);
+        hours = Array(12).fill(0);
+        saveFinanceData();
+        renderFinanceTable(); updateFinance(); updateKPIs();
+      }
 
   </script></div>
 </div>
