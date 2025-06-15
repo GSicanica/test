@@ -75,6 +75,8 @@
       cost = initCost.slice();
       buildings = initBuildings.slice();
       hours = initHours.slice();
+      calendarInstance.removeAllEvents();
+      localStorage.setItem('events','[]');
       localStorage.setItem('revenue', JSON.stringify(revenue));
       localStorage.setItem('cost', JSON.stringify(cost));
       localStorage.setItem('buildings', JSON.stringify(buildings));
@@ -89,6 +91,8 @@
       cost = Array(12).fill(0);
       buildings = Array(12).fill(0);
       hours = Array(12).fill(0);
+      calendarInstance.removeAllEvents();
+      localStorage.setItem('events','[]');
       localStorage.setItem('revenue', JSON.stringify(revenue));
       localStorage.setItem('cost', JSON.stringify(cost));
       localStorage.setItem('buildings', JSON.stringify(buildings));
@@ -270,6 +274,8 @@
           <p>Ukupan prihod: <span id="repRevenue">0</span> EUR</p>
           <p>Ukupan trošak: <span id="repCost">0</span> EUR</p>
           <p>Neto dobit: <span id="repNet">0</span> EUR</p>
+          <input type="file" id="importFile" accept="application/json" class="hidden" onchange="importAllData(event)">
+          <button onclick="document.getElementById('importFile').click()" class="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded mt-2 mr-2">Učitaj JSON</button>
           <button onclick="exportAllData()" class="bg-emerald-600 hover:bg-emerald-700 text-white px-4 py-2 rounded mt-2">Preuzmi JSON</button>
         </div>
       </section></div>
@@ -378,6 +384,47 @@
       link.download = 'dashboard_data.json';
       link.href = URL.createObjectURL(blob);
       link.click();
+    }
+
+    function importAllData(e) {
+      const file = e.target.files[0];
+      if(!file) return;
+      const reader = new FileReader();
+      reader.onload = () => {
+        try {
+          const data = JSON.parse(reader.result);
+          if(Array.isArray(data.revenue)) revenue = data.revenue;
+          if(Array.isArray(data.cost)) cost = data.cost;
+          if(Array.isArray(data.buildings)) buildings = data.buildings;
+          if(Array.isArray(data.hours)) hours = data.hours;
+          if(Array.isArray(data.clients)) clients = data.clients;
+          if(Array.isArray(data.employees)) employees = data.employees;
+          if(Array.isArray(data.equipment)) equipment = data.equipment;
+          if(Array.isArray(data.events)) {
+            calendarInstance.removeAllEvents();
+            data.events.forEach(ev=>calendarInstance.addEvent(ev));
+          }
+          localStorage.setItem('revenue', JSON.stringify(revenue));
+          localStorage.setItem('cost', JSON.stringify(cost));
+          localStorage.setItem('buildings', JSON.stringify(buildings));
+          localStorage.setItem('hours', JSON.stringify(hours));
+          localStorage.setItem('clients', JSON.stringify(clients));
+          localStorage.setItem('employees', JSON.stringify(employees));
+          localStorage.setItem('equipment', JSON.stringify(equipment));
+          localStorage.setItem('events', JSON.stringify(data.events||[]));
+          renderClients();
+          renderEmployees();
+          renderEquipment();
+          renderFinanceTable();
+          updateFinance();
+          updateKPIs();
+          e.target.value='';
+          alert('Podaci uvezeni');
+        } catch(err){
+          alert('Greška pri učitavanju JSON-a');
+        }
+      };
+      reader.readAsText(file);
     }
 
     // CRUD render
@@ -495,9 +542,12 @@
         height:600,
         selectable:true,
         headerToolbar:{left:'title',center:'prev,next today',right:'dayGridMonth,timeGridWeek'},
-        dateClick:info=>{const t=prompt('Naziv zadatka:');if(t){calendarInstance.addEvent({title:t,start:info.dateStr});updateKPIs();}}
+        dateClick:info=>{const t=prompt('Naziv zadatka:');if(t){calendarInstance.addEvent({title:t,start:info.dateStr});saveEvents();updateKPIs();}}
       });
       calendarInstance.render();
+      const storedEv = JSON.parse(localStorage.getItem('events')||'[]');
+      storedEv.forEach(ev=>calendarInstance.addEvent(ev));
+      updateKPIs();
     }
 
     // KPIs
@@ -509,6 +559,11 @@
       document.getElementById('kpiBuildings').innerText = buildings.reduce((a,b)=>a+b,0);
       const avg = (revenue.reduce((a,b,i)=>a+((b-cost[i])/hours[i]),0)/12).toFixed(2);
       document.getElementById('kpiAvgHourly').innerText = avg;
+    }
+
+    function saveEvents(){
+      const events = calendarInstance.getEvents().map(e=>({title:e.title,start:e.startStr}));
+      localStorage.setItem('events', JSON.stringify(events));
     }
 
     // Modals
