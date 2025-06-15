@@ -68,93 +68,10 @@
 <div data-replaced-tag="html" lang="hr">
 <div data-replaced-tag="head">
   <title>Gewerbe Dashboard – Gebäudereinigung &amp; Hausmeisterservice</title><!-- Tailwind CSS --><script src="https://cdn.tailwindcss.com">
-    // Load initial data
-    function loadInitialData() {
-      if (!confirm('Učitati inicijalne testne podatke? Ovo će prebrisati postojeće.')) return;
-      revenue = initRevenue.slice();
-      cost = initCost.slice();
-      buildings = initBuildings.slice();
-      hours = initHours.slice();
-      localStorage.setItem('revenue', JSON.stringify(revenue));
-      localStorage.setItem('cost', JSON.stringify(cost));
-      localStorage.setItem('buildings', JSON.stringify(buildings));
-      localStorage.setItem('hours', JSON.stringify(hours));
-      renderFinanceTable(); updateFinance(); updateKPIs();
-    }
-
-    // Reset all data to zero
-    function resetData() {
-      if (!confirm('Resetirati sve podatke na nulu?')) return;
-      revenue = Array(12).fill(0);
-      cost = Array(12).fill(0);
-      buildings = Array(12).fill(0);
-      hours = Array(12).fill(0);
-      calendarInstance.removeAllEvents();
-      saveEvents();
-      localStorage.setItem('revenue', JSON.stringify(revenue));
-      localStorage.setItem('cost', JSON.stringify(cost));
-      localStorage.setItem('buildings', JSON.stringify(buildings));
-      localStorage.setItem('hours', JSON.stringify(hours));
-      renderFinanceTable(); updateFinance(); updateKPIs();
-    }
 
   </script><!-- FontAwesome Icons --><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"><!-- Chart.js --><script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js">
-    // Load initial data
-    function loadInitialData() {
-      if (!confirm('Učitati inicijalne testne podatke? Ovo će prebrisati postojeće.')) return;
-      revenue = initRevenue.slice();
-      cost = initCost.slice();
-      buildings = initBuildings.slice();
-      hours = initHours.slice();
-      localStorage.setItem('revenue', JSON.stringify(revenue));
-      localStorage.setItem('cost', JSON.stringify(cost));
-      localStorage.setItem('buildings', JSON.stringify(buildings));
-      localStorage.setItem('hours', JSON.stringify(hours));
-      renderFinanceTable(); updateFinance(); updateKPIs();
-    }
-
-    // Reset all data to zero
-    function resetData() {
-      if (!confirm('Resetirati sve podatke na nulu?')) return;
-      revenue = Array(12).fill(0);
-      cost = Array(12).fill(0);
-      buildings = Array(12).fill(0);
-      hours = Array(12).fill(0);
-      localStorage.setItem('revenue', JSON.stringify(revenue));
-      localStorage.setItem('cost', JSON.stringify(cost));
-      localStorage.setItem('buildings', JSON.stringify(buildings));
-      localStorage.setItem('hours', JSON.stringify(hours));
-      renderFinanceTable(); updateFinance(); updateKPIs();
-    }
 
   </script><!-- FullCalendar --><link href="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.8/index.global.min.css" rel="stylesheet"><script src="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.8/index.global.min.js">
-    // Load initial data
-    function loadInitialData() {
-      if (!confirm('Učitati inicijalne testne podatke? Ovo će prebrisati postojeće.')) return;
-      revenue = initRevenue.slice();
-      cost = initCost.slice();
-      buildings = initBuildings.slice();
-      hours = initHours.slice();
-      localStorage.setItem('revenue', JSON.stringify(revenue));
-      localStorage.setItem('cost', JSON.stringify(cost));
-      localStorage.setItem('buildings', JSON.stringify(buildings));
-      localStorage.setItem('hours', JSON.stringify(hours));
-      renderFinanceTable(); updateFinance(); updateKPIs();
-    }
-
-    // Reset all data to zero
-    function resetData() {
-      if (!confirm('Resetirati sve podatke na nulu?')) return;
-      revenue = Array(12).fill(0);
-      cost = Array(12).fill(0);
-      buildings = Array(12).fill(0);
-      hours = Array(12).fill(0);
-      localStorage.setItem('revenue', JSON.stringify(revenue));
-      localStorage.setItem('cost', JSON.stringify(cost));
-      localStorage.setItem('buildings', JSON.stringify(buildings));
-      localStorage.setItem('hours', JSON.stringify(hours));
-      renderFinanceTable(); updateFinance(); updateKPIs();
-    }
 
   </script><style>
     /* Scrollbar */
